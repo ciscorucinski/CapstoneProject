@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="wide_display">true</bool>
+    <bool name="is_single_display">false</bool>
+</resources>

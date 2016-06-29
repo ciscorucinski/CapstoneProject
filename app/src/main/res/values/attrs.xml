@@ -1,0 +1,53 @@
+<resources>
+
+    <attr name="projectName" format="string" />
+    <attr name="projectLink" format="string" />
+
+    <declare-styleable name="SkillsTextView">
+        <attr name="skillType" format="string" />
+        <attr name="skillList" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ProjectView">
+        <attr name="projectName" />
+        <attr name="projectLocation" format="string" />
+        <attr name="projectYear" format="string" />
+        <attr name="projectDescription" format="string" />
+        <attr name="projectLink" />
+        <attr name="projectAccomplishment1" format="string" />
+        <attr name="projectAccomplishment2" format="string" />
+        <attr name="projectAccomplishment3" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ContributionView">
+        <attr name="projectName" />
+        <attr name="projectCreator" format="string" />
+        <attr name="contributionYear" format="string" />
+        <attr name="contributionDescription" format="string" />
+        <attr name="projectLink" />
+    </declare-styleable>
+
+    <declare-styleable name="EducationView">
+        <attr name="educationName" format="string" />
+        <attr name="educationLocation" format="string" />
+        <attr name="educationDegree" format="string" />
+        <attr name="educationYears" format="string" />
+        <attr name="educationCourse" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="WorkView">
+        <attr name="workName" format="string" />
+        <attr name="workLocation" format="string" />
+        <attr name="workPosition" format="string" />
+        <attr name="workYears" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="PersonView">
+        <attr name="personName" format="string" />
+        <attr name="personObjective" format="string" />
+        <attr name="personPhone" format="string" />
+        <attr name="personEmail" format="string" />
+        <attr name="personMotto" format="string" />
+    </declare-styleable>
+
+</resources>

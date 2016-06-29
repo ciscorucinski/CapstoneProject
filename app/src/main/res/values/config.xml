@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="wide_display">false</bool>
+    <bool name="is_single_display">true</bool>
+    <bool name="unsupported_currently">false</bool>
+
+    <integer name="person_id">-1</integer>
+    <bool name="is_single_person">true</bool>
+
+</resources>

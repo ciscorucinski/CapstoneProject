@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <io.github.ciscorucinski.personal.intro.ui.custom.ContributionView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contributionDescription="I discovered a critical bug and helped determine a solution that solved many other open issues"
+        app:contributionYear="2015"
+        app:projectCreator="Chris Simpkins"
+        app:projectLink="http://git.io/vnfOQ"
+        app:projectName="Hack Typeface" />
+
+    <io.github.ciscorucinski.personal.intro.ui.custom.ContributionView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contributionDescription="I discovered a critical bug and helped determine a solution that solved many other open issues"
+        app:contributionYear="2015"
+        app:projectCreator="Chris Simpkins"
+        app:projectName="Hello" />
+
+    <io.github.ciscorucinski.personal.intro.ui.custom.ContributionView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contributionDescription="I discovered a critical bug and helped determine a solution that solved many other open issues"
+        app:contributionYear="2015"
+        app:projectCreator="Chris Simpkins"
+        app:projectLink="http://git.io/vnfOQ"
+        app:projectName="World" />
+
+</LinearLayout>

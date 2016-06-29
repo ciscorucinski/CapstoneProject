@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/resume_item_spacing">
+
+    <TextView
+        android:id="@+id/project_textview_name"
+        style="@style/Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="ChroMATERIAL" />
+
+    <TextView
+        android:id="@+id/project_textview_location"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/project_textview_name"
+        tools:text="Seoul" />
+
+    <TextView
+        android:id="@+id/project_textview_year"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/project_textview_name"
+        android:textIsSelectable="true"
+        tools:text="2015" />
+
+    <TextView
+        android:id="@+id/project_textview_description"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/project_textview_location"
+        android:paddingTop="16dp"
+        android:textIsSelectable="true"
+        tools:text="Material JetBrain IDE color scheme and plug-in to make code faster and easier to comprehend." />
+
+    <LinearLayout
+        android:id="@+id/accomplishment_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/project_textview_description"
+        android:orientation="vertical"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/project_textview_accomplishment1"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:textIsSelectable="true" />
+
+        <TextView
+            android:id="@+id/project_textview_accomplishment2"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:textIsSelectable="true" />
+
+        <TextView
+            android:id="@+id/project_textview_accomplishment3"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:textIsSelectable="true"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/project_textview_link"
+        style="@style/TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/accomplishment_view"
+        android:fontFamily="monospace"
+        android:gravity="end"
+        android:paddingTop="16dp"
+        android:textIsSelectable="true"
+        tools:text="http://git.io/vnfOQ" />
+</RelativeLayout>

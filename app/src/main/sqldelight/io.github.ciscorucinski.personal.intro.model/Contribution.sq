@@ -1,0 +1,58 @@
+CREATE TABLE IF NOT EXISTS contribution (
+
+  _id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+
+  project TEXT NOT NULL,
+  creator TEXT NOT NULL,
+  year TEXT NOT NULL,
+  description TEXT NOT NULL,
+  uri TEXT NOT NULL
+
+);
+
+get_contribution:
+    SELECT *
+    FROM contribution
+    WHERE _id = ?;
+
+get_all_contributions:
+    SELECT *
+    FROM contribution;
+
+insert_data_for_contribution:
+    INSERT INTO contribution (project, creator, year, description, uri)
+    VALUES  (
+
+                'Hack Typeface',
+                'Chris Simpkins',
+                '2015',
+                'I discoverd a critical bug and created a solution that fixed the issue along with many other open issues. I have also performed UI tests on the font to fix minor inconsistencies.',
+                'https://github.com/chrissimpkins/Hack'
+
+            ),
+--            (
+--
+--                'Material JetBrain Theme',
+--                'Chris Magnussen',
+--                '2015',
+--                '',
+--                'https://github.com/ChrisRM/material-theme-jetbrains'
+--
+--            ),
+             (
+
+                'CamScanner',
+                'INTSIG',
+                '2014',
+                'I discovered and created highly detailed bug reports. Along with that I performed a lot of workflow analysis and created feature request to improve the user experience of the app as a whole',
+                'https://play.google.com/store/apps/details?id=com.intsig.camscannerhd'
+
+            ), (
+
+                'CALCU Stylish Calculator',
+                'Designer Calculators',
+                '2014',
+                'I discovered and created highly detailed bug reports and feature requests that fit the UI design standard the company set forth',
+                'https://play.google.com/store/apps/details?id=com.candl.athena'
+
+            );

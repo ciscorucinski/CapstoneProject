@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <io.github.ciscorucinski.personal.intro.ui.custom.EducationView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:educationCourse="Data Structures, Algorithms, Software Engineering Tools &amp; Practices, Database Systems, Software Design Patterns"
+        app:educationDegree="B.S. in Software Engineering"
+        app:educationLocation="Milwaukee, WI"
+        app:educationName="Milwaukee School of Engineering"
+        app:educationYears="September 2008 - May 2013" />
+
+    <io.github.ciscorucinski.personal.intro.ui.custom.EducationView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:educationCourse="Data Structures, Algorithms, Software Engineering Tools &amp; Practices, Database Systems, Software Design Patterns"
+        app:educationDegree="B.S. in Software Engineering"
+        app:educationLocation="Milwaukee, WI"
+        app:educationName="Hello"
+        app:educationYears="September 2008 - May 2013" />
+
+    <io.github.ciscorucinski.personal.intro.ui.custom.EducationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:educationCourse="Data Structures, Algorithms, Software Engineering Tools &amp; Practices, Database Systems, Software Design Patterns"
+        app:educationDegree="B.S. in Software Engineering"
+        app:educationLocation="Milwaukee, WI"
+        app:educationName="World"
+        app:educationYears="September 2008 - May 2013" />
+
+    <io.github.ciscorucinski.personal.intro.ui.custom.EducationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:educationCourse="Data Structures, Algorithms, Software Engineering Tools &amp; Practices, Database Systems, Software Design Patterns"
+        app:educationDegree="B.S. in Software Engineering"
+        app:educationLocation="Milwaukee, WI"
+        app:educationName="Worldssssss"
+        app:educationYears="September 2008 - May 2013" />
+
+</LinearLayout>

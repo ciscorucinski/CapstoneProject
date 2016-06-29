@@ -1,0 +1,18 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <io.github.ciscorucinski.personal.intro.ui.custom.ProjectView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:projectAccomplishment1="hello"
+        app:projectAccomplishment2="hello"
+        app:projectAccomplishment3="hello"
+        app:projectDescription="ChroMATERIAL is a color scheme for JetBrains"
+        app:projectLink="http://git.io/vnfOQ"
+        app:projectLocation="Seoul"
+        app:projectName="ChroMATERIAL"
+        app:projectYear="2015" />
+
+</FrameLayout>

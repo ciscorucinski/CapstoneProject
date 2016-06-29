@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/resume_item_spacing">
+
+    <TextView
+        android:id="@+id/education_textview_name"
+        style="@style/Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Milwaukee School of Engineering" />
+
+    <TextView
+        android:id="@+id/education_textview_location"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/education_textview_name"
+        tools:text="Milwaukee, WI" />
+
+    <TextView
+        android:id="@+id/education_textview_degree"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/education_textview_name"
+        android:textIsSelectable="true"
+        android:textStyle="bold"
+        tools:text="B.S in Software Engineering" />
+
+    <TextView
+        android:id="@+id/education_textview_years"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/education_textview_degree"
+        android:paddingTop="8dp"
+        android:textIsSelectable="true"
+        tools:text="September 2008 - May 2013" />
+
+    <TextView
+        android:id="@+id/education_textview_course"
+        style="@style/TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/education_textview_years"
+        android:fontFamily="monospace"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:textIsSelectable="true"
+        tools:text="course 1, course 2, course 3, course 4, course 5, course 6, course 7, course 8" />
+</RelativeLayout>

@@ -1,0 +1,71 @@
+CREATE TABLE IF NOT EXISTS people (
+  _id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  seeking_position TEXT NOT NULL,
+  resume TEXT NOT NULL,
+  github TEXT NOT NULL,
+  linkedin TEXT NOT NULL,
+
+  motto TEXT NOT NULL,
+  objective TEXT NOT NULL
+
+);
+
+get_header_data_for:
+    SELECT name, motto
+    FROM people
+    WHERE _id = ?;
+
+get_naviagation_link_data_for:
+    SELECT resume, github, linkedin
+    FROM people
+    WHERE _id = ?;
+
+get_naviagation_contact_data_for:
+    SELECT phone, email, resume, github, linkedin
+    FROM people
+    WHERE _id = ?;
+
+get_quick_overview_for:
+    SELECT name, objective, phone, email
+    FROM people
+    WHERE _id = ?;
+
+get_all_persons:
+    SELECT *
+    FROM people;
+
+get_person:
+    SELECT *
+    FROM people
+    Where _id = ?;
+
+
+insert_data_for_chris:
+    INSERT INTO people (name, email, phone, seeking_position, resume, github, linkedin, motto, objective)
+    VALUES (
+
+        'Christopher Rucinski',
+        'ciscorucinski@gmail.com',
+        '010-2991-1618',
+        'Android App Developer',
+        'TODO - Location of PDF file',
+        'https://github.com/ciscorucinski',
+        'https://www.linkedin.com/in/rucinskic',
+        'I dont make the things you use, I make the things you use better',
+        'Obtain an Android Software Engineering position within Seoul to apply my understanding of global smartphone user needs and usages to better suit business needs. I am best in UX/UI, implementing Material Design, and performing Workflow Analysis.'
+
+    ), (
+
+        'Person Name',
+        'address@email.com',
+        '555-5555-5555',
+        'Job Position',
+        'TODO - Location of PDF file',
+        'https://github.com/ciscorucinski',
+        'https://www.linkedin.com/in/rucinskic',
+        'Motto description text',
+        'Objective description text'
+    );

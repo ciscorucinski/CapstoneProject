@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Introduction App</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_select_resume">Select Another Resume</string>
+
+    <string name="person_objective_text">Objective</string>
+    <string name="person_motto_text">Motto</string>
+    <string name="person_contact_text">Contact Information</string>
+    <string name="person_email_label">Phone:</string>
+    <string name="person_label_email">Email:</string>
+
+    <string name="menu_main_about">About Me</string>
+    <string name="menu_main_links">Links</string>
+    <string name="menu_main_contact">Contact</string>
+
+    <string name="menu_secondary_links_linkedin">LinkedIn</string>
+    <string name="menu_secondary_links_github">GitHub</string>
+    <string name="menu_secondary_links_resume">Resume</string>
+    <string name="menu_secondary_about_intro">Personal</string>
+    <string name="menu_secondary_about_projects">Projects</string>
+    <string name="menu_secondary_about_contributions">Contributions</string>
+    <string name="menu_secondary_about_education">Education</string>
+    <string name="menu_secondary_about_work">Work Experience</string>
+    <string name="menu_secondary_about_skills">Skills</string>
+
+    <string name="content_description_empty" />
+    <string name="content_description_header_image">Picture of the Cheonggyecheon</string>
+
+</resources>

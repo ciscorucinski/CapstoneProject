@@ -1,0 +1,80 @@
+CREATE TABLE IF NOT EXISTS projects (
+  _id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  link TEXT,
+  location TEXT NOT NULL,
+  year TEXT NOT NULL,
+  description TEXT NOT NULL,
+  accomplishment1 TEXT NOT NULL,
+  accomplishment2 TEXT NOT NULL,
+  accomplishment3 TEXT NOT NULL
+
+);
+
+get_project:
+    SELECT *
+    FROM projects
+    WHERE _id = :id;
+
+get_projects:
+    SELECT *
+    FROM projects;
+
+insert_data_for_projects:
+    INSERT INTO projects (name, link, location, year, description, accomplishment1, accomplishment2, accomplishment3)
+    VALUES   (
+
+               'ChroMATERIAL',
+               'http://git.io/vl4D7',
+               'Seoul',
+               '2015',
+               'Material JetBrain IDE color scheme nad plug-in to make code faster and easier to comprehend.',
+               'Implemented Git Feature Branch Workflows.',
+               'Exploited human cogntive perception of text.',
+               ''
+
+           ), (
+
+               'Popular Movie App',
+               'http://git.io/vnfo0Q',
+               'Udacity',
+               '2015',
+               'Material Android application that allows users to view movie details and favorite content.',
+               'Used 2nd and 3rd-party APIs and libraries.',
+               'Created custom UI components and layouts (static & dynamic).',
+               'Used RecyclerView with specialized adapter and ViewHolders.'
+
+           ), (
+
+               'Interactive Presentations',
+               '',
+               'Avalon English School',
+               '2014',
+               'Allowed usages of smartphones, tablets, and labtops to wirelessly operate with older school projectors while providing an immersive student engagemnt.',
+               'Gatherd requirements and specifications of students, teachers, and the school.',
+               'Developed and tested several solutions.',
+               'Trained students, teachers, and the school on how to properly use the my solution.'
+
+           ), (
+
+              'SCU TeleOps',
+              '',
+              'MSOE',
+              '2013',
+              'Collaboration project with Santa Clara University in California. It was a pilot project in the initial stages to help manuever (semi) autonomous robots across the Earth using modern browser technologies.',
+              'I led the requirements gathering for the whole project to verify the projects validity.',
+              '',
+              ''
+
+           ), (
+
+              'C Flat',
+              '',
+              'MSOE',
+              '2013',
+              'Real-time implementation of displaying authentic-looking sheet music from a person playing on a real instrument. This project converts the analog sound waves into printable sheet music.',
+              'Implemented the frontend UI in Python.',
+              'Transcribed audio input into real-time output to be displayed to the user.',
+              ''
+
+           );

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/menu_main_about">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/introduction"
+                    android:icon="@drawable/ic_menu_intro"
+                    android:title="@string/menu_secondary_about_intro"
+                    android:visible="@bool/is_single_display" />
+                <item
+                    android:id="@+id/skills"
+                    android:icon="@drawable/ic_menu_document"
+                    android:title="@string/menu_secondary_about_skills"
+                    android:visible="@bool/unsupported_currently" />
+                <item
+                    android:id="@+id/projects"
+                    android:icon="@drawable/ic_menu_special"
+                    android:title="@string/menu_secondary_about_projects" />
+                <item
+                    android:id="@+id/contributions"
+                    android:icon="@drawable/ic_menu_special"
+                    android:title="@string/menu_secondary_about_contributions" />
+                <item
+                    android:id="@+id/education"
+                    android:icon="@drawable/ic_menu_education"
+                    android:title="@string/menu_secondary_about_education" />
+                <item
+                    android:id="@+id/work"
+                    android:icon="@drawable/ic_menu_work"
+                    android:title="@string/menu_secondary_about_work" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_main_links">
+        <menu>
+            <item
+                android:id="@+id/resume"
+                android:enabled="@bool/unsupported_currently"
+                android:icon="@drawable/ic_menu_document"
+                android:title="@string/menu_secondary_links_resume" />
+            <item
+                android:id="@+id/github"
+                android:icon="@drawable/ic_menu_web"
+                android:title="@string/menu_secondary_links_github" />
+            <item
+                android:id="@+id/linkedin"
+                android:icon="@drawable/ic_menu_web"
+                android:title="@string/menu_secondary_links_linkedin" />
+        </menu>
+    </item>
+    <item android:title="@string/menu_main_contact">
+        <menu>
+            <item
+                android:id="@+id/email"
+                android:icon="@drawable/ic_menu_email"
+                android:title="" />
+            <item
+                android:id="@+id/phone"
+                android:icon="@drawable/ic_menu_phone"
+                android:title="" />
+        </menu>
+    </item>
+
+</menu>

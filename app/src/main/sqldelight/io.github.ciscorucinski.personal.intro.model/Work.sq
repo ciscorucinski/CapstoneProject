@@ -1,0 +1,64 @@
+CREATE TABLE IF NOT EXISTS work (
+
+  _id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+
+  name TEXT NOT NULL,
+  location TEXT NOT NULL,
+  position TEXT NOT NULL,
+  start_date TEXT NOT NULL,
+  end_date TEXT NOT NULL
+
+);
+
+get_work_place:
+    SELECT *
+    FROM work
+    WHERE _id = :id;
+
+get_all_work:
+    SELECT *
+    FROM work;
+
+insert_data_for_work:
+    INSERT INTO work (name, location, position, start_date, end_date)
+    VALUES  (
+
+                'Avalon English School',
+                'Bupyeong, KR',
+                'English Teacher',
+                'March 2014',
+                'March 2015'
+
+            ), (
+
+                'Metro Market',
+                'Milwaukee, WI',
+                'Produce Lead',
+                'November 2011',
+                'July 2013'
+
+            ), (
+
+                'Metro Market',
+                'Milwaukee, WI',
+                'Produce Clerk',
+                'June 2008',
+                'November 2011'
+
+            ), (
+
+                'Rucinski Farm',
+                'Stevens Point, WI',
+                'Farm Operator',
+                'January 2005',
+                'June 2008'
+
+            ), (
+
+                'Rucinski Farm',
+                'Stevens Point, WI',
+                'Farm Worker',
+                '1994',
+                'December 2004'
+
+);

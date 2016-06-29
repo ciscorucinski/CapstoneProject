@@ -1,0 +1,47 @@
+CREATE TABLE IF NOT EXISTS skills (
+  _id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  type TEXT NOT NULL,
+  level_1_skills TEXT NOT NULL,
+  level_2_skills TEXT NOT NULL,
+  level_3_skills TEXT NOT NULL
+
+);
+
+get_skill:
+    SELECT *
+    FROM skills
+    WHERE _id = :id;
+
+get_all_skills:
+    SELECT *
+    FROM skills;
+
+insert_data_for_skills:
+    INSERT INTO skills (type, level_1_skills, level_2_skills, level_3_skills)
+    VALUES   (
+
+                'Language',
+                'Java, C#',
+                'SQL, Visual Basic, C / C++',
+                'Python, PHP, Assembly'
+
+            ), (
+
+                'Technologies',
+                'Android Support Libraries 23.2.0, .Net 4.5',
+                'GitHub, JSON, UML',
+                'MySQL, SQLite'
+            ), (
+
+                'IDE',
+                'Android Studio 2.0, IntelliJ IDEA 16, Visual Studio 2013',
+                'Netbeans 7.1, Ecplise 4.2',
+                ''
+
+            ), (
+
+                'Others',
+                'Workflow Analysis, Requirements Gathering & Analysis, Microsoft Office Specialist',
+                '',
+                ''
+            );

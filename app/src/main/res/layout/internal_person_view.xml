@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/person_textview_name"
+        style="@style/Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Christopher Rucinski" />
+
+    <TextView
+        android:id="@+id/person_label_objective"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/person_textview_name"
+        android:paddingBottom="16dp"
+        android:paddingTop="8dp"
+        android:text="@string/person_objective_text"
+        android:textIsSelectable="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/person_textview_objective"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/person_label_objective"
+        android:paddingBottom="16dp"
+        android:textIsSelectable="true"
+        tools:text="Obtain an Android Software Engineering position within Seoul to apply my understanding of global smartphone user needs and usages to better suit business needs. I am best in UX/UI, implementing Material Design, and performing Workflow Analysis.	" />
+
+    <TextView
+        android:id="@+id/person_label_motto"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/person_textview_objective"
+        android:paddingBottom="16dp"
+        android:paddingTop="8dp"
+        android:text="@string/person_motto_text"
+        android:textIsSelectable="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/person_textview_motto"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/person_label_motto"
+        android:paddingBottom="16dp"
+        android:textIsSelectable="true"
+        tools:text="I don't make the things you use; I make the things you use better." />
+
+    <TextView
+        android:id="@+id/person_label_contact_info"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/person_textview_motto"
+        android:paddingBottom="16dp"
+        android:text="@string/person_contact_text"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/person_label_phone"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/person_label_contact_info"
+        android:paddingBottom="8dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:text="@string/person_email_label"
+        android:textIsSelectable="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/person_label_email"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/person_label_phone"
+        android:paddingBottom="8dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:text="@string/person_label_email"
+        android:textIsSelectable="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/person_textview_phone"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/person_label_phone"
+        android:layout_toEndOf="@+id/person_label_phone"
+        android:paddingBottom="8dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:textIsSelectable="true"
+
+        tools:text="010 - 2991 - 1618" />
+
+    <TextView
+        android:id="@+id/person_textview_email"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/person_label_email"
+        android:layout_toEndOf="@+id/person_label_phone"
+        android:paddingBottom="8dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:textIsSelectable="true"
+        tools:text="ciscorucinski@gmail.com" />
+
+</RelativeLayout>
