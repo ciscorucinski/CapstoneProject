@@ -1,0 +1,5 @@
+<resources>
+    <string name="bottom_sheet_welcome_text">Welcome to my Resume App!</string>
+    <string name="bottom_sheet_company">Christopher Rucinski</string>
+    <string name="bottom_sheet_logo_description">Placeholder image</string>
+</resources>
