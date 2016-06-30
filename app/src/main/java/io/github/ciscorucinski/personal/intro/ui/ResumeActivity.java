@@ -346,6 +346,7 @@ public class ResumeActivity extends AppCompatActivity
 
         Timber.i("loading a new fragment into view - %s", fragment);
         getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                 .replace(R.id.fragment_container, fragment)
                 .commit();
 
