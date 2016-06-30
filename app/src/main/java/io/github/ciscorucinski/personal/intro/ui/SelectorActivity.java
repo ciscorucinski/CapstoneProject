@@ -1,13 +1,12 @@
 package io.github.ciscorucinski.personal.intro.ui;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
 import java.util.ArrayList;
@@ -30,7 +29,6 @@ public class SelectorActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         finish();
     }
 
@@ -98,15 +96,14 @@ public class SelectorActivity extends AppCompatActivity
                     }
                 })
 
-                // When the user clicks the cancel button, then close this activity. If this is the
-                // first screen the user as come to, then the app closes. If the user is selecting
-                // another resume to view, then the previous resume is brought back for the user
+                // When the user clicks the cancel button or presses the back button on the device,
+                // then close this activity. If this is the first screen the user as come to, then
+                // the app closes. If the user is selecting another resume to view, then the
+                // previous resume is brought back for the user.
                 .negativeText(android.R.string.cancel)
-                .onNegative(new MaterialDialog.SingleButtonCallback() {
-
+                .dismissListener(new DialogInterface.OnDismissListener() {
                     @Override
-                    public void onClick(@NonNull MaterialDialog dialog,
-                                        @NonNull DialogAction which) {
+                    public void onDismiss(DialogInterface dialog) {
                         finish();
                     }
                 })
