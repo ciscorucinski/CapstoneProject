@@ -70,7 +70,7 @@ public class ResumeActivity extends AppCompatActivity
     }
 
     @SuppressWarnings("SameParameterValue")
-    public static Intent createIntentWithFlags(Context context, Bundle bundle, int... flags) {
+    public static Intent createFlagIntent(Context context, Bundle bundle, int... flags) {
 
         Intent intent = createIntent(context, bundle);
 
