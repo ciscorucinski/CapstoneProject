@@ -12,7 +12,14 @@ public class MyWidgetService extends RemoteViewsService {
 
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        return new HubWidgetAdapter(this.getApplicationContext(), intent);
+
+        boolean isTesting = intent.getBooleanExtra(ResumeHubWidgetProvider.TEST, false);
+
+        if (isTesting) {
+            return new ImagePreviewHubWidgetAdapter(this.getApplicationContext(), intent);
+        } else {
+            return new HubWidgetAdapter(this.getApplicationContext(), intent);
+        }
     }
 
 }

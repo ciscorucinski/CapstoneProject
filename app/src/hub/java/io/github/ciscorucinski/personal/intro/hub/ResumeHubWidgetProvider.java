@@ -21,7 +21,9 @@ import static io.github.ciscorucinski.personal.intro.ui.ResumeActivity.CREATE_IN
  */
 public class ResumeHubWidgetProvider extends AppWidgetProvider {
 
+    static final String TEST = "io.github.ciscorucinski.personal.intro.hub.TEST";
     private static final String LAUNCH_RESUME_ACTION = "io.github.ciscorucinski.personal.intro.hub.LAUNCH_RESUME_ACTION";
+    private static final boolean isTest = false;
 
     private static Intent createIntent(Context context) {
         return new Intent(context, ResumeHubWidgetProvider.class);
@@ -32,6 +34,7 @@ public class ResumeHubWidgetProvider extends AppWidgetProvider {
 
         Intent serviceIntent = MyWidgetService.createIntent(context);
         serviceIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+        serviceIntent.putExtra(TEST, isTest);
         serviceIntent.setData(Uri.parse(serviceIntent.toUri(Intent.URI_INTENT_SCHEME)));
 
         // Construct the RemoteViews object
