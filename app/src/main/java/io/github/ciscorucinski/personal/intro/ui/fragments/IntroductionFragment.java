@@ -1,7 +1,6 @@
 package io.github.ciscorucinski.personal.intro.ui.fragments;
 
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
@@ -29,7 +28,6 @@ public class IntroductionFragment extends SimplifiedLoaderFragment<Resume.People
     private static final String PERSON_ID = "id";
 
     private long personID;
-    private boolean isWideDisplay = false;
 
     public IntroductionFragment() {
         // Required empty public constructor
@@ -74,17 +72,11 @@ public class IntroductionFragment extends SimplifiedLoaderFragment<Resume.People
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         @LayoutRes int layoutID;
-        isWideDisplay = getResources().getBoolean(R.bool.wide_display);
-
+        boolean isWideDisplay = getResources().getBoolean(R.bool.wide_display);
         personID = getArguments().getLong(PERSON_ID);
 
         layoutID = (isWideDisplay)

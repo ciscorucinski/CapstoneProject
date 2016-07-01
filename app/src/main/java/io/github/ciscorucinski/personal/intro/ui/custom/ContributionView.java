@@ -87,7 +87,7 @@ public class ContributionView extends RelativeLayout implements Mappable<Resume.
 
         projectName = data.project();
         projectCreator = data.creator();
-        projectLink = data.uri().toString();
+        projectLink = data.uri();
         contributionYear = data.year();
         contributionDescription = data.description();
 

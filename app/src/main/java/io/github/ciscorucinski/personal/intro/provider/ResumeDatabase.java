@@ -24,6 +24,8 @@ public class ResumeDatabase {
     public static final String WORK = MyContract.Work;
     @Table(MyContract.PeopleColumns.class)
     public static final String PEOPLE = MyContract.People;
+
+    @SuppressWarnings("WeakerAccess")
     static final int VERSION = 1;
 
     private ResumeDatabase() {

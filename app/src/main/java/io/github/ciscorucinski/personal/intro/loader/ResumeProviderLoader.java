@@ -33,7 +33,8 @@ abstract class ResumeProviderLoader<T extends ModelIndicator>
 
     }
 
-    ResumeProviderLoader(final Context context, RowMapper<T> mapper, ResumeRetriever provider) {
+    @SuppressWarnings("WeakerAccess")
+    private ResumeProviderLoader(final Context context, RowMapper<T> mapper, ResumeRetriever provider) {
 
         super(context);
 
@@ -75,7 +76,7 @@ abstract class ResumeProviderLoader<T extends ModelIndicator>
 
     }
 
-    public List<T> initializeResultSize() {
+    List<T> initializeResultSize() {
 
         return new ArrayList<>(DEFAULT_DATA_SIZE);
 

@@ -114,7 +114,7 @@ public class ProjectView extends RelativeLayout implements Mappable<Resume.Proje
 
         projectName = data.name();
         projectLocation = data.location();
-        projectLink = (data.link() == null) ? ("") : (data.link().toString());
+        projectLink = (data.link() == null) ? ("") : (data.link());
         projectYear = data.year();
         projectDescription = data.description();
         projectAccomplishments.add(data.accomplishment1());

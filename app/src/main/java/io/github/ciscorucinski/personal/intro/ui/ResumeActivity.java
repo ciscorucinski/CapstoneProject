@@ -25,11 +25,6 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
 import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.ui.fragments.ContributionsFragment;
 import io.github.ciscorucinski.personal.intro.ui.fragments.EducationFragment;
@@ -74,6 +69,7 @@ public class ResumeActivity extends AppCompatActivity
 
     }
 
+    @SuppressWarnings("SameParameterValue")
     public static Intent createIntentWithFlags(Context context, Bundle bundle, int... flags) {
 
         Intent intent = createIntent(context, bundle);
@@ -86,21 +82,21 @@ public class ResumeActivity extends AppCompatActivity
 
     }
 
-    private static void copy(InputStream in, File dst) throws IOException {
-
-        FileOutputStream out = new FileOutputStream(dst);
-
-        byte[] buf = new byte[1024];
-        int len;
-
-        while ((len = in.read(buf)) > 0) {
-            out.write(buf, 0, len);
-        }
-
-        in.close();
-        out.close();
-
-    }
+//    private static void copy(InputStream in, File dst) throws IOException {
+//
+//        FileOutputStream out = new FileOutputStream(dst);
+//
+//        byte[] buf = new byte[1024];
+//        int len;
+//
+//        while ((len = in.read(buf)) > 0) {
+//            out.write(buf, 0, len);
+//        }
+//
+//        in.close();
+//        out.close();
+//
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,7 +159,9 @@ public class ResumeActivity extends AppCompatActivity
             String seeking = bundle.getString(SEEKING);
             String emailAddress = bundle.getString(EMAIL);
             String phoneNumber = bundle.getString(PHONE);
-            String phoneNumberFormatted = phoneNumber.replace("-", " - ");
+            String phoneNumberFormatted = phoneNumber != null
+                    ? phoneNumber.replace("-", " - ")
+                    : "";
 
             String github_url = bundle.getString(GITHUB);
             String linkedin_url = bundle.getString(LINKEDIN);
@@ -206,7 +204,8 @@ public class ResumeActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE);
 
         ImageView headerImage = (ImageView) findViewById(R.id.header);
 
@@ -222,11 +221,12 @@ public class ResumeActivity extends AppCompatActivity
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+
+        if (drawer != null) drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        if (navigationView != null) navigationView.setNavigationItemSelectedListener(this);
 
         customTabHelper = new CustomTabActivityHelper();
 
@@ -237,6 +237,9 @@ public class ResumeActivity extends AppCompatActivity
     private void initializeBottomSheet() {
 
         View bottomSheet = findViewById(R.id.bottom_sheet_introduction);
+
+        if (bottomSheet == null) return;
+
         BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
 
         boolean isBottomSheetClosed = getPreferences(MODE_PRIVATE)
@@ -264,7 +267,6 @@ public class ResumeActivity extends AppCompatActivity
 
                 @Override
                 public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
                 }
             });
 
@@ -276,7 +278,7 @@ public class ResumeActivity extends AppCompatActivity
     public void onBackPressed() {
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
+        if (drawer != null && drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
@@ -350,7 +352,7 @@ public class ResumeActivity extends AppCompatActivity
                 .replace(R.id.fragment_container, fragment)
                 .commit();
 
-        getSupportActionBar().setTitle(fragment.getName());
+        if (getSupportActionBar() != null) getSupportActionBar().setTitle(fragment.getName());
 
     }
 
@@ -456,11 +458,12 @@ public class ResumeActivity extends AppCompatActivity
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        if (drawer != null) drawer.closeDrawer(GravityCompat.START);
         return true;
 
     }
 
+    @SuppressWarnings("SameParameterValue")
     private void openPDF(String filename) {
 
         final String auth = "io.github.ciscorucinski.personal.intro.file";

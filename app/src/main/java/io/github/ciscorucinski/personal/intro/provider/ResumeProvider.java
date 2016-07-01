@@ -21,7 +21,7 @@ import timber.log.Timber;
 
 public class ResumeProvider extends ContentProvider implements ResumeRetriever {
 
-    static final String AUTHORITY = "io.github.ciscorucinski.personal.intro";
+    private static final String AUTHORITY = "io.github.ciscorucinski.personal.intro";
 
     private static final int CONTRIBUTION_CONTENT_URI = 0;
     private static final int EDUCATION_CONTENT_URI = 1;
@@ -51,8 +51,7 @@ public class ResumeProvider extends ContentProvider implements ResumeRetriever {
     }
 
     private SelectionBuilder getBuilder(String table) {
-        SelectionBuilder builder = new SelectionBuilder();
-        return builder;
+        return new SelectionBuilder();
     }
 
     private void insertValues(SQLiteDatabase db, String table, ContentValues[] values) {
@@ -150,8 +149,6 @@ public class ResumeProvider extends ContentProvider implements ResumeRetriever {
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
                         String sortOrder) {
-
-        final SQLiteDatabase db = database.getReadableDatabase();
 
         switch (MATCHER.match(uri)) {
             case CONTRIBUTION_CONTENT_URI: {

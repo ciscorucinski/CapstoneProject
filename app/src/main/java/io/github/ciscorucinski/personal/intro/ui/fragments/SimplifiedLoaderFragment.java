@@ -47,6 +47,7 @@ public abstract class SimplifiedLoaderFragment<T> extends Fragment implements Lo
 
         isViewCreated = true;
 
+        //noinspection ConstantConditions
         Timber.i("isDataAvailable %s\nisViewCreated %s\nisDataHandled %s\ndata %s", isDataAvailable, isViewCreated, isDataHandled, data);
         if (isDataAvailable && !isDataHandled) {
 
@@ -71,6 +72,7 @@ public abstract class SimplifiedLoaderFragment<T> extends Fragment implements Lo
         this.data = data;
         this.isDataAvailable = true;
 
+        //noinspection ConstantConditions
         Timber.i("isDataAvailable %s\nisViewCreated %s\ncontext %s\nisDataHandled %s\ndata %s", isDataAvailable, isViewCreated, getContext(), isDataHandled, data);
         if (isViewCreated && !isDataHandled && getContext() != null) {
 

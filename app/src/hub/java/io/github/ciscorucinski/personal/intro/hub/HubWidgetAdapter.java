@@ -22,13 +22,14 @@ import static io.github.ciscorucinski.personal.intro.ui.ResumeActivity.CREATE_IN
 class HubWidgetAdapter implements RemoteViewsService.RemoteViewsFactory,
         Loader.OnLoadCompleteListener<List<Resume.People>> {
 
-    private Context context;
+    private final Context context;
+    private final int appWidgetId;
     private List<Resume.People> data;
-    private int appWidgetId;
     private PeopleLoader loader;
 
     HubWidgetAdapter(Context context, Intent intent) {
         this.context = context;
+        this.data = new ArrayList<>();
         appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
                 AppWidgetManager.INVALID_APPWIDGET_ID);
     }
@@ -71,7 +72,6 @@ class HubWidgetAdapter implements RemoteViewsService.RemoteViewsFactory,
 
     @Override
     public void onCreate() {
-        data = new ArrayList<>();
     }
 
     @Override
@@ -91,11 +91,9 @@ class HubWidgetAdapter implements RemoteViewsService.RemoteViewsFactory,
     }
 
     @Override public void onDataSetChanged() {
-
         loader = new PeopleLoader(context);
         loader.registerListener(0, this);
         loader.startLoading();
-
     }
 
     @Override public int getCount() { return data.size(); }

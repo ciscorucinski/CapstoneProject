@@ -12,7 +12,7 @@ import timber.log.Timber;
 
 public class PersonLoader extends ResumeProviderLoader<Resume.People> {
 
-    private long id;
+    private final long id;
 
     public PersonLoader(Context context, long id) {
 
