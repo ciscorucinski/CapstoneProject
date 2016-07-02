@@ -13,9 +13,7 @@ import android.widget.TextView;
 import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.model.Resume;
 
-/**
- * TODO: document your custom view class.
- */
+@SuppressWarnings("unused")
 public class EducationView extends RelativeLayout implements Mappable<Resume.Education> {
 
     private String educationName;

@@ -11,9 +11,7 @@ import android.widget.TextView;
 import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.model.Resume;
 
-/**
- * TODO: document your custom view class.
- */
+@SuppressWarnings("unused")
 public class PersonView extends RelativeLayout implements Mappable<Resume.People> {
 
     private String personName;

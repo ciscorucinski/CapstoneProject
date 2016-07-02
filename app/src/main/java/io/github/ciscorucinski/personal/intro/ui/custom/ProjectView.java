@@ -14,9 +14,7 @@ import java.util.List;
 import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.model.Resume;
 
-/**
- * TODO: document your custom view class.
- */
+@SuppressWarnings("unused")
 public class ProjectView extends RelativeLayout implements Mappable<Resume.Project> {
 
     private static final int MAX_ACCOMPLISHMENTS = 3;

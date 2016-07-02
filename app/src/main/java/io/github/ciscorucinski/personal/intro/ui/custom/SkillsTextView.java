@@ -11,6 +11,7 @@ import android.widget.TextView;
 import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.model.Resume;
 
+@SuppressWarnings("unused")
 public class SkillsTextView extends LinearLayout implements Mappable<Resume.Skill> {
 
     private String skillsType;
