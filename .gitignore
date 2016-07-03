@@ -13,7 +13,7 @@
 ### Android
 
 # Built application files
-*.apk
+#*.apk
 *.ap_
 
 # Files for the Dalvik VM
@@ -43,3 +43,7 @@ proguard/
 ### Others
 google-services.json
 Thumbs.db
+app/libs/
+app/src/main/assets/
+app/src/main/res/values-port/
+app/src/main/res/values-w600dp/
