@@ -31,10 +31,10 @@
         android:id="@+id/company_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-
         android:layout_below="@+id/welcome_message"
         android:layout_marginStart="16dp"
-        android:contentDescription="@string/bottom_sheet_logo_description" />
+        android:contentDescription="@string/bottom_sheet_logo_description"
+        android:src="@drawable/bottom_sheet_logo" />
 
 </merge>
 
