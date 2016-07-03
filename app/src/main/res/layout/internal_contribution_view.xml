@@ -6,7 +6,7 @@
     android:padding="@dimen/resume_item_spacing">
 
     <TextView
-        android:id="@+id/person_textview_name"
+        android:id="@+id/contribution_textview_name"
         style="@style/Header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
 
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@id/person_textview_name"
+        android:layout_below="@id/contribution_textview_name"
         tools:text="By Chris Simpkins" />
 
     <TextView
@@ -29,12 +29,12 @@
 
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@id/person_textview_name"
+        android:layout_below="@id/contribution_textview_name"
         android:textIsSelectable="true"
         tools:text="2015" />
 
     <TextView
-        android:id="@+id/person_textview_objective"
+        android:id="@+id/contribution_textview_description"
         style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="wrap_content"
 
@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@id/person_textview_objective"
+        android:layout_below="@id/contribution_textview_description"
         android:fontFamily="monospace"
         android:gravity="end"
         android:paddingTop="16dp"

@@ -6,10 +6,10 @@
 
     <string name="action_select_resume">Select Another Resume</string>
 
-    <string name="person_objective_text">Objective</string>
-    <string name="person_motto_text">Motto</string>
-    <string name="person_contact_text">Contact Information</string>
-    <string name="person_email_label">Phone:</string>
+    <string name="person_label_objective">Objective</string>
+    <string name="person_label_motto">Motto</string>
+    <string name="person_label_contact">Contact Information</string>
+    <string name="person_label_phone">Phone:</string>
     <string name="person_label_email">Email:</string>
 
     <string name="menu_main_about">About Me</string>

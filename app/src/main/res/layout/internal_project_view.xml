@@ -46,7 +46,7 @@
         tools:text="Material JetBrain IDE color scheme and plug-in to make code faster and easier to comprehend." />
 
     <LinearLayout
-        android:id="@+id/accomplishment_view"
+        android:id="@+id/project_viewgroup_accomplishments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/project_textview_description"
@@ -96,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@id/accomplishment_view"
+        android:layout_below="@id/project_viewgroup_accomplishments"
         android:fontFamily="monospace"
         android:gravity="end"
         android:paddingTop="16dp"

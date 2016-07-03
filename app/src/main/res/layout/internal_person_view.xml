@@ -21,7 +21,7 @@
         android:layout_below="@+id/person_textview_name"
         android:paddingBottom="16dp"
         android:paddingTop="8dp"
-        android:text="@string/person_objective_text"
+        android:text="@string/person_label_objective"
         android:textIsSelectable="true"
         android:textStyle="bold" />
 
@@ -45,7 +45,7 @@
         android:layout_below="@+id/person_textview_objective"
         android:paddingBottom="16dp"
         android:paddingTop="8dp"
-        android:text="@string/person_motto_text"
+        android:text="@string/person_label_motto"
         android:textIsSelectable="true"
         android:textStyle="bold" />
 
@@ -68,7 +68,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/person_textview_motto"
         android:paddingBottom="16dp"
-        android:text="@string/person_contact_text"
+        android:text="@string/person_label_contact"
         android:textStyle="bold" />
 
     <TextView
@@ -81,7 +81,7 @@
         android:paddingBottom="8dp"
         android:paddingEnd="16dp"
         android:paddingStart="16dp"
-        android:text="@string/person_email_label"
+        android:text="@string/person_label_phone"
         android:textIsSelectable="true"
         android:textStyle="bold" />
 
