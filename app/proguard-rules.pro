@@ -15,3 +15,18 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+# autovalue
+-dontwarn javax.lang.**
+-dontwarn javax.tools.**
+-dontwarn javax.annotation.**
+-dontwarn autovalue.shaded.com.**
+-dontwarn com.google.auto.value.**
+
+# autovalue gson extension
+-keep class **.AutoParcelGson_*
+-keepnames @auto.parcelgson.AutoParcelGson class *
+
+# others
+-dontwarn org.apache.velocity.**
+-dontwarn com.squareup.picasso.**
