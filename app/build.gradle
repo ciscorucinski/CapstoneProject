@@ -7,7 +7,7 @@ android {
         release_config {
             keyAlias 'release'
             keyPassword 'release'
-            storeFile file('C:/Users/Christopher/AndroidStudioProjects/CapstoneProject/release_keystore.jks')
+            storeFile file('release_keystore.jks')
             storePassword 'release'
         }
     }
