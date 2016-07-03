@@ -10,9 +10,13 @@ import android.widget.TextView;
 
 import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.model.Resume;
+import io.github.ciscorucinski.personal.intro.ui.custom.accessibility.Accessibility;
+import timber.log.Timber;
 
 @SuppressWarnings("unused")
 public class PersonView extends RelativeLayout implements Mappable<Resume.People> {
+
+    private ViewGroup root;
 
     private String personName;
     private String personObjective;
@@ -46,6 +50,7 @@ public class PersonView extends RelativeLayout implements Mappable<Resume.People
 
     public static PersonView populate(Context context, Resume.People data) {
 
+        Timber.i("LOG RESUME.PEOPLE data - %s", data);
         PersonView view = new PersonView(context);
         view.populate(data);
 
@@ -55,7 +60,7 @@ public class PersonView extends RelativeLayout implements Mappable<Resume.People
 
     private void init(AttributeSet attrs, int defStyle) {
 
-        ViewGroup root = (ViewGroup) LayoutInflater.from(getContext()).inflate(
+        root = (ViewGroup) LayoutInflater.from(getContext()).inflate(
                 R.layout.internal_person_view, this, true);
 
         // Load attributes
@@ -75,6 +80,33 @@ public class PersonView extends RelativeLayout implements Mappable<Resume.People
         txtPersonMotto = (TextView) root.findViewById(R.id.person_textview_motto);
         txtPersonPhone = (TextView) root.findViewById(R.id.person_textview_phone);
         txtPersonEmail = (TextView) root.findViewById(R.id.person_textview_email);
+
+        // Declare Navigation Accessibility
+        Accessibility.with(root)
+                .disableFocusableNavigationOn(
+                        R.id.person_label_objective,
+                        R.id.person_label_motto,
+                        R.id.person_label_phone,
+                        R.id.person_label_email)
+
+                .setFocusableNavigationOn(txtPersonName)
+                .down(R.id.person_textview_objective).complete()
+                .setFocusableNavigationOn(txtPersonObjective)
+                .up(R.id.person_textview_name)
+                .down(R.id.person_textview_motto).complete()
+                .setFocusableNavigationOn(txtPersonMotto)
+                .up(R.id.person_textview_name)
+                .down(R.id.person_textview_motto).complete()
+                .setFocusableNavigationOn(R.id.person_label_contact_info)
+                .up(R.id.person_textview_motto)
+                .down(R.id.person_textview_phone).complete()
+                .setFocusableNavigationOn(txtPersonPhone)
+                .up(R.id.person_textview_motto)
+                .down(R.id.person_textview_email).complete()
+                .setFocusableNavigationOn(txtPersonObjective)
+                .up(R.id.person_textview_phone).complete()
+
+                .requestFocusOn(R.id.person_textview_name);
 
         // Update TextPaint and text measurements from attributes
         invalidateView();
@@ -101,6 +133,24 @@ public class PersonView extends RelativeLayout implements Mappable<Resume.People
         txtPersonMotto.setText(personMotto);
         txtPersonPhone.setText(personPhone);
         txtPersonEmail.setText(personEmail);
+
+        // Declare Content Description Accessibility
+        Accessibility.with(root)
+                .setAccessibilityTextOn(txtPersonName)
+                .setModifiableContentDescription(getPersonName())
+                .prepend("Applicant Name is ").complete()
+                .setAccessibilityTextOn(txtPersonObjective)
+                .setModifiableContentDescription(getPersonObjective())
+                .prepend(getResources().getString(R.string.person_label_objective) + " is ").complete()
+                .setAccessibilityTextOn(txtPersonMotto)
+                .setModifiableContentDescription(getPersonMotto())
+                .prepend(getResources().getString(R.string.person_label_motto) + " is ").complete()
+                .setAccessibilityTextOn(txtPersonPhone)
+                .setModifiableContentDescription(getPersonPhone())
+                .prepend(getResources().getString(R.string.person_label_phone) + " is ").complete()
+                .setAccessibilityTextOn(txtPersonEmail)
+                .setModifiableContentDescription(getPersonEmail())
+                .prepend(getResources().getString(R.string.person_label_email) + " is ").complete();
 
     }
 
@@ -130,7 +180,7 @@ public class PersonView extends RelativeLayout implements Mappable<Resume.People
 
     public String getPersonMotto() {
 
-        return personObjective;
+        return personMotto;
     }
 
     public void setPersonMotto(String personMotto) {

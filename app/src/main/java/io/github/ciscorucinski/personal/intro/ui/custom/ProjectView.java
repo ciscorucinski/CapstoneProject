@@ -13,12 +13,15 @@ import java.util.List;
 
 import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.model.Resume;
+import io.github.ciscorucinski.personal.intro.ui.custom.accessibility.Accessibility;
 
 @SuppressWarnings("unused")
 public class ProjectView extends RelativeLayout implements Mappable<Resume.Project> {
 
     private static final int MAX_ACCOMPLISHMENTS = 3;
     private static final String EMPTY_LIST_ITEM = "";
+
+    private ViewGroup root;
 
     private String projectName;
     private String projectLocation;
@@ -33,6 +36,8 @@ public class ProjectView extends RelativeLayout implements Mappable<Resume.Proje
     private TextView txtProjectLink;
     private TextView txtProjectYear;
     private TextView txtProjectDescription;
+
+    private ViewGroup grpAccomplishments;
 
     private TextView txtAccomplishment1;
     private TextView txtAccomplishment2;
@@ -67,7 +72,7 @@ public class ProjectView extends RelativeLayout implements Mappable<Resume.Proje
 
     private void init(AttributeSet attrs, int defStyle) {
 
-        ViewGroup root = (ViewGroup) LayoutInflater.from(getContext()).inflate(
+        root = (ViewGroup) LayoutInflater.from(getContext()).inflate(
                 R.layout.internal_project_view, this, true);
 
         projectAccomplishments = new ArrayList<>(MAX_ACCOMPLISHMENTS);
@@ -102,6 +107,30 @@ public class ProjectView extends RelativeLayout implements Mappable<Resume.Proje
         txtAccomplishment1 = (TextView) root.findViewById(R.id.project_textview_accomplishment1);
         txtAccomplishment2 = (TextView) root.findViewById(R.id.project_textview_accomplishment2);
         txtAccomplishment3 = (TextView) root.findViewById(R.id.project_textview_accomplishment3);
+
+        grpAccomplishments = (ViewGroup) root.findViewById(R.id.project_viewgroup_accomplishments);
+
+        // Declare Navigation Accessibility
+        Accessibility.with(root)
+                .disableFocusableNavigationOn(
+                        R.id.project_textview_location,
+                        R.id.project_textview_year,
+                        R.id.project_textview_accomplishment1,
+                        R.id.project_textview_accomplishment2,
+                        R.id.project_textview_accomplishment3)
+
+                .setFocusableNavigationOn(txtProjectName)
+                .down(R.id.project_textview_description).complete()
+                .setFocusableNavigationOn(txtProjectDescription)
+                .up(R.id.project_textview_name)
+                .down(R.id.project_viewgroup_accomplishments).complete()
+                .setFocusableNavigationOn(grpAccomplishments)
+                .up(R.id.project_textview_description)
+                .down(R.id.project_textview_link).complete()
+                .setFocusableNavigationOn(txtProjectLink)
+                .up(R.id.project_viewgroup_accomplishments).complete()
+
+                .requestFocusOn(R.id.project_textview_name);
 
         invalidateView();
 
@@ -143,6 +172,27 @@ public class ProjectView extends RelativeLayout implements Mappable<Resume.Proje
         if (projectAccomplishments.size() == 0) numberOfVisibleItems = 0;
 
         showAccomplishments(numberOfVisibleItems);
+
+        // Declare Content Description Accessibility
+        Accessibility.with(root)
+                .setAccessibilityTextOn(txtProjectName)
+                .setModifiableContentDescription(getProjectName())
+                .prepend("Project Name is ")
+                .append(". Location of ")
+                .append(getProjectLocation())
+                .append(". Build in ")
+                .append(getProjectYear()).complete()
+                .setAccessibilityTextOn(txtProjectDescription)
+                .setModifiableContentDescription(getProjectDescription())
+                .prepend("Description: ").complete()
+                .setAccessibilityTextOn(grpAccomplishments)
+                .setModifiableContentDescription("List of accomplishments. ")
+                .append(getProjectAccomplishments())
+                .append("End of Accomplishments.")
+                .complete()
+                .setAccessibilityTextOn(txtProjectLink)
+                .setModifiableContentDescription(getProjectLink())
+                .prepend("URL is ").complete();
 
     }
 

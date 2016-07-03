@@ -10,14 +10,20 @@ import android.widget.TextView;
 
 import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.model.Resume;
+import io.github.ciscorucinski.personal.intro.ui.custom.accessibility.Accessibility;
 
 @SuppressWarnings("unused")
 public class WorkView extends RelativeLayout implements Mappable<Resume.Work> {
+
+    private ViewGroup root;
 
     private String workName;
     private String workLocation;
     private String workPosition;
     private String workYears;
+
+    private String workStartYear;
+    private String workEndYear;
 
     private TextView txtWorkName;
     private TextView txtWorkLocation;
@@ -53,7 +59,7 @@ public class WorkView extends RelativeLayout implements Mappable<Resume.Work> {
 
     private void init(AttributeSet attrs, int defStyle) {
 
-        ViewGroup root = (ViewGroup) LayoutInflater.from(getContext()).inflate(
+        root = (ViewGroup) LayoutInflater.from(getContext()).inflate(
                 R.layout.internal_work_view, this, true);
 
         // Load attributes
@@ -65,12 +71,24 @@ public class WorkView extends RelativeLayout implements Mappable<Resume.Work> {
         workPosition = a.getString(R.styleable.WorkView_workPosition);
         workYears = a.getString(R.styleable.WorkView_workYears);
 
+        workStartYear = "";
+        workEndYear = "";
+
         a.recycle();
 
         txtWorkName = (TextView) root.findViewById(R.id.work_textview_name);
         txtWorkLocation = (TextView) root.findViewById(R.id.work_textview_location);
         txtWorkPosition = (TextView) root.findViewById(R.id.work_textview_position);
         txtWorkYears = (TextView) root.findViewById(R.id.work_textview_years);
+
+        // Declare Navigation Accessibility
+        Accessibility.with(root)
+                .disableFocusableNavigationOn(
+                        R.id.work_textview_position,
+                        R.id.work_textview_location,
+                        R.id.work_textview_years)
+
+                .requestFocusOn(R.id.work_textview_name);
 
         // Update TextPaint and text measurements from attributes
         invalidateView();
@@ -85,6 +103,9 @@ public class WorkView extends RelativeLayout implements Mappable<Resume.Work> {
         workPosition = data.position();
         workYears = String.format("%s - %s", data.start_date(), data.end_date());
 
+        workStartYear = data.start_date();
+        workEndYear = data.end_date();
+
         invalidateView();
 
     }
@@ -95,6 +116,19 @@ public class WorkView extends RelativeLayout implements Mappable<Resume.Work> {
         txtWorkLocation.setText(workLocation);
         txtWorkPosition.setText(workPosition);
         txtWorkYears.setText(workYears);
+
+        // Declare Content Description Accessibility
+        Accessibility.with(root)
+                .setAccessibilityTextOn(txtWorkName)
+                .setModifiableContentDescription(getWorkName())
+                .prepend("Worked at ")
+                .append(String.format(" as a %s in %s.",
+                        getWorkPosition(),
+                        getWorkLocation()))
+                .append(String.format("From %s to %s",
+                        getWorkStartYear(),
+                        getWorkEndYear()))
+                .complete();
 
     }
 
@@ -140,6 +174,14 @@ public class WorkView extends RelativeLayout implements Mappable<Resume.Work> {
 
         this.workYears = workYears;
         invalidateView();
+    }
+
+    private String getWorkStartYear() {
+        return this.workStartYear;
+    }
+
+    private String getWorkEndYear() {
+        return this.workEndYear;
     }
 
 }

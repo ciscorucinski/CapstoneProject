@@ -10,9 +10,12 @@ import android.widget.TextView;
 
 import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.model.Resume;
+import io.github.ciscorucinski.personal.intro.ui.custom.accessibility.Accessibility;
 
 @SuppressWarnings("unused")
 public class ContributionView extends RelativeLayout implements Mappable<Resume.Contribution> {
+
+    private ViewGroup root;
 
     private String projectName;
     private String projectCreator;
@@ -55,7 +58,7 @@ public class ContributionView extends RelativeLayout implements Mappable<Resume.
 
     private void init(AttributeSet attrs, int defStyle) {
 
-        ViewGroup root = (ViewGroup) LayoutInflater.from(getContext()).inflate(
+        root = (ViewGroup) LayoutInflater.from(getContext()).inflate(
                 R.layout.internal_contribution_view, this, true);
 
         // Load attributes
@@ -70,11 +73,27 @@ public class ContributionView extends RelativeLayout implements Mappable<Resume.
 
         a.recycle();
 
-        txtProjectName = (TextView) root.findViewById(R.id.person_textview_name);
+        txtProjectName = (TextView) root.findViewById(R.id.contribution_textview_name);
         txtProjectCreator = (TextView) root.findViewById(R.id.contribution_textview_creator);
         txtProjectLink = (TextView) root.findViewById(R.id.contribution_textview_link);
         txtContributionYear = (TextView) root.findViewById(R.id.contribution_textview_year);
-        txtContributionDescription = (TextView) root.findViewById(R.id.person_textview_objective);
+        txtContributionDescription = (TextView) root.findViewById(R.id.contribution_textview_description);
+
+        // Declare Navigation Accessibility
+        Accessibility.with(root)
+                .disableFocusableNavigationOn(
+                        R.id.contribution_textview_creator,
+                        R.id.contribution_textview_year)
+
+                .setFocusableNavigationOn(txtProjectName)
+                .down(R.id.contribution_textview_description).complete()
+                .setFocusableNavigationOn(txtContributionDescription)
+                .up(R.id.contribution_textview_name)
+                .down(R.id.contribution_textview_link).complete()
+                .setFocusableNavigationOn(txtProjectLink)
+                .up(R.id.project_textview_description).complete()
+
+                .requestFocusOn(R.id.contribution_textview_name);
 
         // Update TextPaint and text measurements from attributes
         invalidateView();
@@ -103,6 +122,21 @@ public class ContributionView extends RelativeLayout implements Mappable<Resume.
 
         if ("".equals(projectLink)) txtProjectLink.setVisibility(GONE);
         else txtProjectLink.setVisibility(VISIBLE);
+
+        // Declare Content Description Accessibility
+        Accessibility.with(root)
+                .setAccessibilityTextOn(txtProjectName)
+                .setModifiableContentDescription(getProjectName())
+                .prepend("Contribution occurred on the Project called ")
+                .append(String.format(" by %s in %s",
+                        getProjectCreator(),
+                        getContributionYear())).complete()
+                .setAccessibilityTextOn(txtContributionDescription)
+                .setModifiableContentDescription(getContributionDescription())
+                .prepend("Description: ").complete()
+                .setAccessibilityTextOn(txtProjectLink)
+                .setModifiableContentDescription(getProjectLink())
+                .prepend("URL is ").complete();
 
     }
 

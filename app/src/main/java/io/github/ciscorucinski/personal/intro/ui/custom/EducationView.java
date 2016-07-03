@@ -12,16 +12,21 @@ import android.widget.TextView;
 
 import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.model.Resume;
+import io.github.ciscorucinski.personal.intro.ui.custom.accessibility.Accessibility;
 
 @SuppressWarnings("unused")
 public class EducationView extends RelativeLayout implements Mappable<Resume.Education> {
 
+    private ViewGroup root;
+
     private String educationName;
     private String educationLocation;
-
     private String educationDegree;
     private String educationYears;
     private String educationCourses;
+
+    private String educationStartYear;
+    private String educationEndYear;
 
     private TextView txtEducationName;
     private TextView txtEducationLocation;
@@ -58,7 +63,7 @@ public class EducationView extends RelativeLayout implements Mappable<Resume.Edu
 
     private void init(AttributeSet attrs, int defStyle) {
 
-        ViewGroup root = (ViewGroup) LayoutInflater.from(getContext()).inflate(
+        root = (ViewGroup) LayoutInflater.from(getContext()).inflate(
                 R.layout.internal_education_view, this, true);
 
         // Load attributes
@@ -71,6 +76,9 @@ public class EducationView extends RelativeLayout implements Mappable<Resume.Edu
         educationYears = a.getString(R.styleable.EducationView_educationYears);
         educationCourses = a.getString(R.styleable.EducationView_educationCourse);
 
+        educationStartYear = "";
+        educationEndYear = "";
+
         a.recycle();
 
         txtEducationName = (TextView) root.findViewById(R.id.education_textview_name);
@@ -78,6 +86,20 @@ public class EducationView extends RelativeLayout implements Mappable<Resume.Edu
         txtEducationDegree = (TextView) root.findViewById(R.id.education_textview_degree);
         txtEducationYears = (TextView) root.findViewById(R.id.education_textview_years);
         txtEducationCourses = (TextView) root.findViewById(R.id.education_textview_course);
+
+        // Declare Navigation Accessibility
+        Accessibility.with(root)
+                .disableFocusableNavigationOn(
+                        R.id.education_textview_degree,
+                        R.id.education_textview_location,
+                        R.id.education_textview_years)
+
+                .setFocusableNavigationOn(txtEducationName)
+                .down(R.id.education_textview_course).complete()
+                .setFocusableNavigationOn(txtEducationCourses)
+                .up(R.id.education_textview_name).complete()
+
+                .requestFocusOn(R.id.education_textview_name);
 
         // Update TextPaint and text measurements from attributes
         invalidateView();
@@ -93,6 +115,9 @@ public class EducationView extends RelativeLayout implements Mappable<Resume.Edu
         educationYears = String.format("%s - %s", data.start_date(), data.end_date());
         educationCourses = data.courses();
 
+        educationStartYear = data.start_date();
+        educationEndYear = data.end_date();
+
         invalidateView();
     }
 
@@ -103,6 +128,22 @@ public class EducationView extends RelativeLayout implements Mappable<Resume.Edu
         txtEducationDegree.setText(educationDegree);
         txtEducationYears.setText(educationYears);
         txtEducationCourses.setText(Html.fromHtml(String.format("<b>Courses -</b> %s", educationCourses)));
+
+        // Declare Content Description Accessibility
+        Accessibility.with(root)
+                .setAccessibilityTextOn(txtEducationName)
+                .setModifiableContentDescription(getEducationName())
+                .prepend("Attended school at ")
+                .append(String.format(" for a %s in %s. ",
+                        getEducationDegree(),
+                        getEducationLocation()))
+                .append(String.format("From %s to %s",
+                        getEducationStartYear(),
+                        getEducationEndYear())).complete()
+                .setAccessibilityTextOn(txtEducationCourses)
+                .setModifiableContentDescription(getEducationCourses())
+                .prepend("Completed courses: ")
+                .append("End of courses").complete();
 
     }
 
@@ -159,6 +200,14 @@ public class EducationView extends RelativeLayout implements Mappable<Resume.Edu
 
         this.educationCourses = educationCourses;
         invalidateView();
+    }
+
+    private String getEducationStartYear() {
+        return this.educationStartYear;
+    }
+
+    private String getEducationEndYear() {
+        return this.educationEndYear;
     }
 
 }

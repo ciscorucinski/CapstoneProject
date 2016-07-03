@@ -14,6 +14,8 @@ import io.github.ciscorucinski.personal.intro.model.Resume;
 @SuppressWarnings("unused")
 public class SkillsTextView extends LinearLayout implements Mappable<Resume.Skill> {
 
+    private ViewGroup root;
+
     private String skillsType;
     private String skillsList;
 
@@ -52,7 +54,7 @@ public class SkillsTextView extends LinearLayout implements Mappable<Resume.Skil
 
     private void init(AttributeSet attrs, int defStyle) {
 
-        ViewGroup root = (ViewGroup) LayoutInflater.from(getContext()).inflate(
+        root = (ViewGroup) LayoutInflater.from(getContext()).inflate(
                 R.layout.internal_skills_text_view, this, true);
 
         // Load attributes
