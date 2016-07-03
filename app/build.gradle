@@ -3,15 +3,21 @@ apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.squareup.sqldelight'
 
 android {
+    signingConfigs {
+        release_config {
+            keyAlias 'release'
+            keyPassword 'release'
+            storeFile file('C:/Users/Christopher/AndroidStudioProjects/CapstoneProject/release_keystore.jks')
+            storePassword 'release'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-
     // Define custom labels for names
     ext {
         APP_NAME = "Introduction Resume"
         HUB_NAME = "Resume Hub"
     }
-
     defaultConfig {
         applicationId "io.github.ciscorucinski.personal.intro"
         minSdkVersion 17
@@ -20,7 +26,6 @@ android {
         versionName "1.0"
         manifestPlaceholders = [applicationLabel: APP_NAME]
     }
-
     productFlavors {
 
         // Flavors for individual people / companies
@@ -48,24 +53,21 @@ android {
             manifestPlaceholders = [applicationLabel: HUB_NAME]
         }
     }
-
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release_config
         }
     }
-
     applicationVariants.all { variant ->
         if (variant.buildType.name == "release" || variant.flavorName == "hub") return
         variant.mergedFlavor.manifestPlaceholders = [applicationLabel: APP_NAME + variant.mergedFlavor.versionNameSuffix]
     }
-
     sourceSets {
         release { java.srcDirs = ['src/release/java', 'src/release/java/'] }
         hub { java.srcDirs = ['src/hub/java', 'src/hub/java/'] }
     }
-
     aaptOptions {
         noCompress 'pdf'
     }
@@ -88,5 +90,4 @@ dependencies {
     apt 'net.simonvt.schematic:schematic-compiler:0.5.3'
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'com.afollestad.material-dialogs:core:0.8.5.9'
-
 }
