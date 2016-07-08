@@ -6,6 +6,7 @@ import com.squareup.sqldelight.RowMapper;
 public class Resume {
 
     public static final String DATABASE_NAME = "resume.db";
+    public static final int DATABASE_VERSION = 1;
 
     @AutoValue
     public abstract static class Education implements EducationModel, ModelIndicator {
