@@ -15,6 +15,7 @@ import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.loader.PeopleLoader;
 import io.github.ciscorucinski.personal.intro.loader.PersonLoader;
 import io.github.ciscorucinski.personal.intro.model.Resume;
+import timber.log.Timber;
 
 
 /**
@@ -68,6 +69,7 @@ public class PeopleFragment extends SimplifiedLoaderFragment<Resume.People> {
      */
     private static PeopleFragment newInstance(PeopleDisplayer displayer, boolean isSinglePerson, int id) {
 
+        Timber.i("Creating a new instance of %s with person id { %s } and is single person { %s }", PeopleFragment.class.getSimpleName(), id, isSinglePerson);
         PeopleFragment fragment = new PeopleFragment();
         Bundle args = new Bundle();
 

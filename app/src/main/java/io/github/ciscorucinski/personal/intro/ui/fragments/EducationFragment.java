@@ -15,6 +15,7 @@ import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.loader.EducationLoader;
 import io.github.ciscorucinski.personal.intro.model.Resume;
 import io.github.ciscorucinski.personal.intro.ui.custom.EducationView;
+import timber.log.Timber;
 
 
 /**
@@ -34,6 +35,7 @@ public class EducationFragment extends SimplifiedLoaderFragment<Resume.Education
      */
     public static EducationFragment newInstance() {
 
+        Timber.i("Creating a new instance of %s", EducationFragment.class.getSimpleName());
         EducationFragment fragment = new EducationFragment();
         Bundle args = new Bundle();
 

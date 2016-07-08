@@ -7,14 +7,15 @@ import java.util.List;
 import io.github.ciscorucinski.personal.intro.ui.custom.accessibility.interfaces.ContentDescription;
 import io.github.ciscorucinski.personal.intro.ui.custom.accessibility.interfaces.ModifiableContentDescription;
 
-public class TextAccessibility extends ContentDescription {
+@SuppressWarnings("unused")
+class TextAccessibility extends ContentDescription {
 
-    private final Accessibility.ViewGroupAccessibility accessibility;
+    private final ViewGroupAccessibility accessibility;
     private final View parentView;
 
 //    private boolean isModified = false;
 
-    TextAccessibility(Accessibility.ViewGroupAccessibility accessibility, View parentView) {
+    TextAccessibility(ViewGroupAccessibility accessibility, View parentView) {
         this.accessibility = accessibility;
         this.parentView = parentView;
 
@@ -57,7 +58,7 @@ public class TextAccessibility extends ContentDescription {
     }
 
     @Override
-    public Accessibility.ViewGroupAccessibility setContentDescription(String text) {
+    public ViewGroupAccessibility setContentDescription(String text) {
 
         // if text is null, then main text will be a string with the value of "null". This will make the screen-reader ignore the text
         this.mainText = new StringBuilder().append(text);
@@ -66,7 +67,7 @@ public class TextAccessibility extends ContentDescription {
     }
 
     @Override
-    public Accessibility.ViewGroupAccessibility setContentDescription(CharSequence text) {
+    public ViewGroupAccessibility setContentDescription(CharSequence text) {
         return setContentDescription(text.toString());
     }
 
@@ -88,7 +89,7 @@ public class TextAccessibility extends ContentDescription {
     }
 
     @Override
-    public Accessibility.ViewGroupAccessibility complete() {
+    public ViewGroupAccessibility complete() {
 
         String contentDescription = (isModified)
                 ? mainText.insert(0, prependText).append(appendText).toString()

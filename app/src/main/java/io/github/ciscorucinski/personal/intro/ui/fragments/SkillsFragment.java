@@ -15,6 +15,7 @@ import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.loader.SkillLoader;
 import io.github.ciscorucinski.personal.intro.model.Resume;
 import io.github.ciscorucinski.personal.intro.ui.custom.SkillsTextView;
+import timber.log.Timber;
 
 
 /**
@@ -34,6 +35,7 @@ public class SkillsFragment extends SimplifiedLoaderFragment<Resume.Skill> {
      */
     public static SkillsFragment newInstance() {
 
+        Timber.i("Creating a new instance of %s", SkillsFragment.class.getSimpleName());
         SkillsFragment fragment = new SkillsFragment();
         Bundle args = new Bundle();
 

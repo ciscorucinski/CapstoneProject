@@ -36,6 +36,7 @@ public class ProjectsFragment extends SimplifiedLoaderFragment<Resume.Project> {
      */
     public static ProjectsFragment newInstance() {
 
+        Timber.i("Creating a new instance of %s", ProjectsFragment.class.getSimpleName());
         ProjectsFragment fragment = new ProjectsFragment();
         Bundle args = new Bundle();
 

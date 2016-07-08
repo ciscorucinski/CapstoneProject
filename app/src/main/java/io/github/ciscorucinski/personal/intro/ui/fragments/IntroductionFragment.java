@@ -59,6 +59,7 @@ public class IntroductionFragment extends SimplifiedLoaderFragment<Resume.People
 
     private static IntroductionFragment newInstance(long id, boolean nonChangeable) {
 
+        Timber.i("Creating a new instance of %s with id { %s } and is non-changing { %s }", IntroductionFragment.class.getSimpleName(), id, nonChangeable);
         IntroductionFragment fragment = new IntroductionFragment();
         Bundle args = new Bundle();
 

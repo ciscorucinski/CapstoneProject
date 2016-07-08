@@ -15,6 +15,7 @@ import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.loader.ContributionLoader;
 import io.github.ciscorucinski.personal.intro.model.Resume;
 import io.github.ciscorucinski.personal.intro.ui.custom.ContributionView;
+import timber.log.Timber;
 
 
 /**
@@ -34,6 +35,7 @@ public class ContributionsFragment extends SimplifiedLoaderFragment<Resume.Contr
      */
     public static ContributionsFragment newInstance() {
 
+        Timber.i("Creating a new instance of %s", ContributionsFragment.class.getSimpleName());
         ContributionsFragment fragment = new ContributionsFragment();
         Bundle args = new Bundle();
 

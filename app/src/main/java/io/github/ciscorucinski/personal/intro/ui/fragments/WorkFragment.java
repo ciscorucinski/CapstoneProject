@@ -15,6 +15,7 @@ import io.github.ciscorucinski.personal.intro.R;
 import io.github.ciscorucinski.personal.intro.loader.WorkLoader;
 import io.github.ciscorucinski.personal.intro.model.Resume;
 import io.github.ciscorucinski.personal.intro.ui.custom.WorkView;
+import timber.log.Timber;
 
 
 /**
@@ -34,6 +35,7 @@ public class WorkFragment extends SimplifiedLoaderFragment<Resume.Work> {
      */
     public static WorkFragment newInstance() {
 
+        Timber.i("Creating a new instance of %s", WorkFragment.class.getSimpleName());
         WorkFragment fragment = new WorkFragment();
         Bundle args = new Bundle();
 

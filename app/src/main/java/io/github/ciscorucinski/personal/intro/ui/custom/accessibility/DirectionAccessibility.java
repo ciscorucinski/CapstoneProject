@@ -6,17 +6,18 @@ import android.view.ViewGroup;
 
 import io.github.ciscorucinski.personal.intro.ui.custom.accessibility.interfaces.Direction;
 
+@SuppressWarnings("unused")
 public class DirectionAccessibility extends Direction {
 
     //    View parentView;
-    private Accessibility.ViewGroupAccessibility accessibility;
+    private ViewGroupAccessibility accessibility;
 
-    public DirectionAccessibility(Accessibility.ViewGroupAccessibility accessibility, ViewGroup viewGroup, @IdRes int parentViewId) {
+    DirectionAccessibility(ViewGroupAccessibility accessibility, ViewGroup viewGroup, @IdRes int parentViewId) {
         this.parentView = viewGroup.findViewById(parentViewId);
         this.accessibility = accessibility;
     }
 
-    public DirectionAccessibility(Accessibility.ViewGroupAccessibility accessibility, View view) {
+    DirectionAccessibility(ViewGroupAccessibility accessibility, View view) {
         this.parentView = view;
         this.accessibility = accessibility;
     }
@@ -52,7 +53,7 @@ public class DirectionAccessibility extends Direction {
     }
 
     @Override
-    public Accessibility.ViewGroupAccessibility complete() {
+    public ViewGroupAccessibility complete() {
         this.parentView.setFocusable(true);
         return this.accessibility;
     }
