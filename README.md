@@ -5,5 +5,5 @@
 Here is my fully functional set of Android Apps I built for the Udacity Android Developer Nanodegree.
 
 
-###Issues
+### Issues
 If there are any issue with the project, then you can chat with me directly at `Gitter` Chat via the badge above.
